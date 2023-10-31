@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Querying", "Querying", "{44
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryingIssues.EF7", "QueryingIssues\QueryingIssues.EF7.csproj", "{3B3EF0D2-E8AC-453E-BA4D-9BEC27C000B1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging", "Logging\Logging.csproj", "{2A4A63A3-BFC8-4D45-83AD-7F34CF694418}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +19,17 @@ Global
 		{3B3EF0D2-E8AC-453E-BA4D-9BEC27C000B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3B3EF0D2-E8AC-453E-BA4D-9BEC27C000B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3B3EF0D2-E8AC-453E-BA4D-9BEC27C000B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A4A63A3-BFC8-4D45-83AD-7F34CF694418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A4A63A3-BFC8-4D45-83AD-7F34CF694418}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A4A63A3-BFC8-4D45-83AD-7F34CF694418}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A4A63A3-BFC8-4D45-83AD-7F34CF694418}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3B3EF0D2-E8AC-453E-BA4D-9BEC27C000B1} = {44F1D95E-F174-4676-8C14-D02B5E0DA764}
+		{2A4A63A3-BFC8-4D45-83AD-7F34CF694418} = {44F1D95E-F174-4676-8C14-D02B5E0DA764}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {512678AA-D8DE-42B9-9E6F-45A28E1EC6CD}
