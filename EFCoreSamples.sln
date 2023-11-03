@@ -5,9 +5,11 @@ VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Querying", "Querying", "{44F1D95E-F174-4676-8C14-D02B5E0DA764}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryingIssues.EF7", "QueryingIssues\QueryingIssues.EF7.csproj", "{3B3EF0D2-E8AC-453E-BA4D-9BEC27C000B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QueryingIssues.EF7", "QueryingIssues\QueryingIssues.EF7.csproj", "{3B3EF0D2-E8AC-453E-BA4D-9BEC27C000B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging", "Logging\Logging.csproj", "{2A4A63A3-BFC8-4D45-83AD-7F34CF694418}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Logging", "Logging\Logging.csproj", "{2A4A63A3-BFC8-4D45-83AD-7F34CF694418}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QueryingIssues.EF3.1", "QueryingIssues.EF3.1\QueryingIssues.EF3.1.csproj", "{3A87659F-A062-463B-BD4C-55698E97218C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,6 +25,10 @@ Global
 		{2A4A63A3-BFC8-4D45-83AD-7F34CF694418}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A4A63A3-BFC8-4D45-83AD-7F34CF694418}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A4A63A3-BFC8-4D45-83AD-7F34CF694418}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A87659F-A062-463B-BD4C-55698E97218C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A87659F-A062-463B-BD4C-55698E97218C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A87659F-A062-463B-BD4C-55698E97218C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A87659F-A062-463B-BD4C-55698E97218C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +36,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{3B3EF0D2-E8AC-453E-BA4D-9BEC27C000B1} = {44F1D95E-F174-4676-8C14-D02B5E0DA764}
 		{2A4A63A3-BFC8-4D45-83AD-7F34CF694418} = {44F1D95E-F174-4676-8C14-D02B5E0DA764}
+		{3A87659F-A062-463B-BD4C-55698E97218C} = {44F1D95E-F174-4676-8C14-D02B5E0DA764}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {512678AA-D8DE-42B9-9E6F-45A28E1EC6CD}
