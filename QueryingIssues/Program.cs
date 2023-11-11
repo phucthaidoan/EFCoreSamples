@@ -15,5 +15,8 @@ using QueryingIssues.EF7;
 //await query3.Query(); 
 //await query3.Query_Workaround(); 
 
-var query4 = new QueryStackoverflowGroupBy();
-query4.QueryNo59456026();
+//var query4 = new QueryStackoverflowGroupBy();
+//query4.QueryNo59456026();
+
+var query5 = new QueryProjectionAsNoTracking();
+query5.Query();
