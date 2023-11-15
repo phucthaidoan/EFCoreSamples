@@ -1,30 +1,22 @@
-﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QueryingIssues
+﻿namespace QueryingIssues
 {
     //https://github.com/dotnet/efcore/issues/27285
     public class QueryGitNo27285
     {
-        public async Task Query()
+        public void Query()
         {
             using var db = new BloggingContext();
 
-            await db
-                    .Blogs
-                    .Select(p => new
-                    {
-                        p.Url,
-                        PostCount = p.Posts.Count
-                    })
-                    .Where(p => p.PostCount > 5)
-                    .ToListAsync();
+            db.Blogs
+                .Select(p => new
+                {
+                    p.Url,
+                    PostCount = p.Posts.Count
+                })
+                .Where(p => p.PostCount > 5)
+                .ToList();
 
-            // raw query: 
+            // raw query: issue is still open
           //  SELECT "b"."Url", (
           //SELECT COUNT(*)
           //FROM "Posts" AS "p0"

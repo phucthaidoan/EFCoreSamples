@@ -26,9 +26,9 @@ public class BloggingContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder options)
         => options
              .UseLoggerFactory(MyLoggerFactory) // Enable EF Core logging
-            // .UseSqlServer(
-            //     "Server=LAPTOP-IAJ1J0A2;Database=blogpost;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=true");
-            .UseSqlite($"Data Source={DbPath}");
+             .UseSqlServer(
+                 "Server=LAPTOP-IAJ1J0A2;Database=blogpost;Trusted_Connection=True;MultipleActiveResultSets=true;TrustServerCertificate=true");
+            //.UseSqlite($"Data Source={DbPath}");
 }
 
 public class Blog

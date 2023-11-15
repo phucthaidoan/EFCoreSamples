@@ -55,6 +55,16 @@ namespace QueryingIssues
             noOfTrackedEntities = db.ChangeTracker.Entries().Count();
             Console.WriteLine($"After query blogs that include posts using projection without AsNoTracking() - {noOfTrackedEntities}");
 
+            var listNoAsNoTrackingProjectionWithEntity = db
+                    .Blogs
+                    .Select(blog => new
+                    {
+                        Blog = blog,
+                        HasPost = blog.Posts
+                    })
+                    .ToList();
+            noOfTrackedEntities = db.ChangeTracker.Entries().Count();
+            Console.WriteLine($"After query blogs that using project query of blog entity without AsNoTracking() - {noOfTrackedEntities}");
         }
 
         private void Init()

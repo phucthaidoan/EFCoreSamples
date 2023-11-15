@@ -8,7 +8,7 @@ namespace QueryingIssues.EF3._1
         {
             var query5 = new QueryStackoverflowGroupBy();
             query5.QueryNo59456026();
-            query5.QueryNo59456026_Workaround();
+            //query5.QueryNo59456026_Workaround();
         }
     }
 }

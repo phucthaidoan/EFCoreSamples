@@ -17,6 +17,7 @@ namespace QueryingIssues.EF7
 
             using var context = new BloggingContext();
 
+            // This is just a demo to see how groupBy is improved in EF Core > 3.3
             var data = context
                 .Posts
                 .GroupBy(post => post.BlogId)
@@ -58,8 +59,24 @@ namespace QueryingIssues.EF7
             {
                 Console.WriteLine($"Blog {blog.BlogUrl} - Post ({blog.Post?.PostId}): {blog.Post?.Title}");
             }
+
+            // It can be a better query to get the oldest create post of each blog
+            /*var data2 = context
+                .Blogs
+                .Select(blog => new
+                {
+                    blog.BlogId,
+                    Post = blog.Posts.OrderByDescending(blog => blog.CreatedAt).FirstOrDefault()
+                })
+                .ToList();
+
+            Console.WriteLine("-------------------------------");
+            foreach (var item in data)
+            {
+                Console.WriteLine($"Blog {item.BlogId} - Post ({item.Post?.PostId}): {item.Post?.Title}");
+            }*/
         }
-         
+
         private void Init()
         {
             using var context = new BloggingContext();

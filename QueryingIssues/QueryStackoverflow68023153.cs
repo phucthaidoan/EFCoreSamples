@@ -53,9 +53,9 @@ namespace QueryingIssues
                 .Select(group => new { BlogId = group.Key, TotalView = group.Sum(x => x.NumberOfView) })
                 .Join(
                     db.Blogs,
-                    it => it.BlogId,
-                    it => it.BlogId,
-                    (postTotalView, blog) => new { blog.BlogId, blog.Url, postTotalView.TotalView })
+                    grouped => grouped.BlogId,
+                    blog => blog.BlogId,
+                    (grouped, blog) => new { blog.BlogId, blog.Url, grouped.TotalView })
                 .Where(x => x.TotalView > 1 && x.TotalView > 5)
                 .ToListAsync();
 
