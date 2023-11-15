@@ -14,6 +14,9 @@ public class BloggingService : IBloggingService
     {
         _dbContext = dbContext;
         _logger = logger;
+
+        _dbContext.Database.EnsureDeleted();
+        _dbContext.Database.EnsureCreated();
     }
 
     public void GetWithoutQueryTags()
@@ -31,7 +34,7 @@ public class BloggingService : IBloggingService
 
     public void GetWithExtraLogs()
     {
-        using (_logger.BeginScope(new Dictionary<string, object> { { "EFQueries", "GetBlogs" } }))
+        using (_logger.BeginScope(new Dictionary<string, object> { { "EFQueriesType", "GetBlogsValue" } }))
         {
             var _ = _dbContext
                 .Blogs
@@ -76,6 +79,7 @@ public class BloggingService : IBloggingService
         {
             _dbContext.Blogs
                 .FromSql($"SELECT * FROM Blogs")
+                .TagWith("GetBlogsRawQuery")
                 .ToList();
         }
     }

@@ -24,11 +24,11 @@ using IHost host = builder.Build();
 var bloggingService = host.Services.GetService<IBloggingService>();
 // uncomment to give a try.
 
-// bloggingService.GetWithQueryTags();
-// bloggingService.GetWithExtraLogs();
-// bloggingService.InsertWithoutLogScope();
-// bloggingService.InsertWithLogScope();
-// bloggingService.ExecuteRawQueryWithoutQueryTags();
+//bloggingService.GetWithQueryTags();
+//bloggingService.GetWithExtraLogs();
+//bloggingService.InsertWithoutLogScope();
+//bloggingService.InsertWithLogScope();
+//bloggingService.ExecuteRawQueryWithoutQueryTags();
 bloggingService.ExecuteRawQueryWithQueryTags();
 
 await host.RunAsync();
