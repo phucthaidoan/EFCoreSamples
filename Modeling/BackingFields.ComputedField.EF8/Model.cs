@@ -1,27 +1,27 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace BackingFields.EF8.Simple
+namespace BackingFields.ComputedField.EF8
 {
-    public class PersonContext : DbContext
+    public class AppContext : DbContext
     {
         public static readonly ILoggerFactory MyLoggerFactory
             = LoggerFactory.Create(builder => builder.AddConsole());
-        public string DbPath { get; }
 
         public DbSet<Person> People { get; set; }
-
-        public PersonContext()
-        {
-            var folder = Environment.SpecialFolder.LocalApplicationData;
-            var path = Environment.GetFolderPath(folder);
-        }
+        public DbSet<Order> Orders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Person>()
+            modelBuilder
+                .Entity<Person>()
                 .Property(p => p.IsOver18)
                 .HasField("_isOver18");
+
+            modelBuilder
+                .Entity<Order>()
+                .Property("_orderDate")
+                .HasColumnName("OrderDate");
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
@@ -35,6 +35,19 @@ namespace BackingFields.EF8.Simple
     {
         private bool _isOver18;
         private int _age;
+        private string _name;
+
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = value;
+            }
+        }
 
         public bool IsOver18 { get; private set; }
 
@@ -50,6 +63,11 @@ namespace BackingFields.EF8.Simple
             set
             {
                 _age = value;
+                if (_age < 6)
+                {
+                    throw new Exception("Not allow person whose age is less than 6");
+                }
+
                 if (_age > 18)
                 {
                     _isOver18 = true;
@@ -60,5 +78,23 @@ namespace BackingFields.EF8.Simple
                 }
             }
         }
+    }
+
+    public class Order
+    {
+        private DateTime _orderDate;
+
+        public int Id { get; set; }
+        public void SetOrderDate(DateTime dateTime)
+        {
+            if (dateTime < DateTime.Today)
+            {
+                throw new Exception("Order date cannot be in the past");
+            }
+
+            _orderDate = dateTime;
+        }
+
+        public DateTime GetOrderDate() => _orderDate;
     }
 }
