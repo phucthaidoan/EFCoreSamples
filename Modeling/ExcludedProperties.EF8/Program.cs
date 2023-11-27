@@ -1,9 +1,10 @@
 ﻿using ExcludedProperties.EF8;
 using Microsoft.EntityFrameworkCore;
 
-await IgnoredFieldTestingAsync();
+//await IgnoredFieldTestingAsync();
 
 //await QueryRelatedFieldTestingAsync();
+await PersonQueryClientEvaluationTestingAsync();
 
 async Task IgnoredFieldTestingAsync()
 {
@@ -84,6 +85,36 @@ async Task QueryRelatedFieldTestingAsync()
             .ToListAsync();
 
         blogs.ForEach(blog => Console.WriteLine($"{blog.BlogId} - {blog.TotalNumberOfPostView}"));
+    }
+}
+
+async Task PersonQueryClientEvaluationTestingAsync()
+{
+    using (var dbContext = new ExcludedProperties.EF8.AppContext())
+    {
+        await dbContext.Database.EnsureDeletedAsync();
+        await dbContext.Database.EnsureCreatedAsync();
+
+        await dbContext.AddRangeAsync(new List<Person>
+        {
+            new Person
+            {
+                Age = 9,
+                FirstName = "Foo first",
+                LastName = "Foo last",
+            },
+            new Person
+            {
+                Age = 49,
+                FirstName = "Bar first",
+                LastName = "Bar last",
+            }
+        });
+        await dbContext.SaveChangesAsync();
+
+        var result = dbContext.People
+            .Where(p => p.FullName.StartsWith("John")) // this gets exception => could not be translated
+            .ToList();
     }
 }
 

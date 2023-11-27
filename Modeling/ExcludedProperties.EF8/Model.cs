@@ -25,6 +25,11 @@ namespace ExcludedProperties.EF8
         [NotMapped]
         public bool IsOver18 => Age > 18;
 
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        [NotMapped]
+        public string FullName => $"{FirstName} {LastName}";
+
         public int Id { get; set; }
 
         public int Age { get; set; }
